@@ -1,0 +1,84 @@
+body {
+    margin: 0;
+    /* background: #eee; */
+    font-family: serif;
+}
+
+h2 {
+    padding: 0 30px;
+}
+
+h3 {
+    padding: 0 30px;
+}
+
+p {
+    padding: 0 120px;
+}
+
+ol {
+    padding: 0 120px;
+}
+
+h1 {
+    text-align: center;
+    margin: 20px 0 10px 0;
+}
+
+#simple-network .aligner {
+    display: flex;
+    justify-content: center;
+}
+
+#dates-network .aligner {
+    display: flex;
+    justify-content: center;
+}
+
+svg {
+    display: block;
+    /* background: #eee; */
+}
+
+div.tooltip {
+    position: absolute;
+    text-align: center;
+    padding: .4rem;
+    background: #313639;
+    color: #f9f9f9;
+    border: 0px;
+    border-radius: 8px;
+    pointer-events: none;
+    font-size: .7rem;
+}
+
+
+
+/* svg {
+    max-width: 100%; 
+    width: 100%;
+    height: auto;
+    fill: cyan;
+    display: block;
+} */
+ 
+
+/* .aligner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;  
+    align-items: center;       
+    min-height: 100vh;
+} */
+
+/* .svg-style {
+        background-color: lightblue;
+        display: block;
+        margin: auto;
+} */
