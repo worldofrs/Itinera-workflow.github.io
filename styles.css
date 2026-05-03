@@ -8,6 +8,13 @@ h2 {
     padding: 0 30px;
 }
 
+.notes-figure img {
+    padding: 0 30px;
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+}
+
 h3 {
     padding: 0 30px;
 }

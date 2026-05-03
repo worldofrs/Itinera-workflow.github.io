@@ -1,84 +1,224 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>Itinera D3 Visualization</title>
-        <script type="text/javascript" src="d3/d3.v7.js"></script>    
-        <script type="text/javascript" src="main_simple.js"></script>    
-         <script type="text/javascript" src="main_dates.js"></script>    
-        <link rel="stylesheet" href="styles.css">
-    </head>
-    <body>
-        <h1>A Mapping of Entities in Itinera</h1>
-        <h2>Introduction</h2>
-        <p>When I was matched with <b>Itinera: Historical Travel and Digital Humanities</b> project in the First Experiences in Research program, I was confused and intrigued. I was hoping to receive the project more programming heavy, but I saw it incorporated some aspect of technical and visual thinking, so I went ahead with the interview. I never could have predicted the intellectual expansion, the frustration, and the rabbit holes I would end up falling into when I became an undergraduate research assistant for Itinera, but I’m glad I did. Here is everything I learned, did, and took away from FE-R with Itinera.</p>
-        <h2>Process</h2>
-        <h3>Before I started</h3>
-        <p>My mentor Amrita, and I started off our first sessions by discussing Itinera and everything that it meant and signified. Itinera is a web-based mapping of Grand Tours and 18th century travel, but only one of the visualizations, the Routes visualization, was a map. Does map only mean geographical map? What constitutes a map? We spent a lot of time discussing, trying to deduce its very essence without giving the non-answer of saying a map is anything and everything. We mapped aspects of our own life as well, me a family vacation I took to Hawaii, and Amrita her mind during the past year. Considering Itinera, my travel map, and her mind map, which undeniably function as maps in some regard, we concluded that a map must have the followed components:</p>
-        <ol>
-            <li>Time: the visual must be placed in the context of time. All maps, even if not explicitly stated, have a duration or time component associated with them. Even globes or other geographical maps, which don’t seem to be correlated to time, show national boundaries and continental formations during certain periods of time.</li>
 
-            <li>Place: Whether physical or mental, there is always a “location” that the map shows or intuits. For example, in Amrita’s mind map, the location would be her mind, while mine shows the locations my family and I visited on our journey to and from Hawaii.</li>
+<head>
+    <meta charset="utf-8">
+    <title>Itinera D3 Visualization</title>
+    <script type="text/javascript" src="d3/d3.v7.js"></script>
+    <script type="text/javascript" src="main_simple.js"></script>
+    <script type="text/javascript" src="main_dates.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
 
-            <li>Text, lines, shapes, and/or images: This is the most basic, fundamental level of communication through which all visuals convey information through, and maps are no exception.</li>
+<body>
+    <h1>A Mapping of Entities in Itinera</h1>
+    <h2>Introduction</h2>
+    <p>When I was matched with <b>Itinera: Historical Travel and Digital Humanities</b> project in the First Experiences
+        in Research program, I was confused and intrigued. I was hoping to receive the project more programming heavy,
+        but I saw it incorporated some aspects of technical and visual thinking, so I went ahead with the interview. I
+        never could have predicted the intellectual expansion, the frustration, and the rabbit holes I would end up
+        falling into when I became an undergraduate research assistant for Itinera, but I’m glad I did. Here is
+        everything I learned, did, and took away from FE-R with Itinera.</p>
+    <h2>Process</h2>
+    <h3>Before I started</h3>
+    <p>My mentor Amrita and I started off our first sessions by discussing Itinera and everything that it meant and
+        signified. Itinera is a web-based mapping of Grand Tours and 18th century travel, but only one of the
+        visualizations, the Routes visualization, was a map. Does maps only refer to geographical maps? What constitutes
+        a map? We spent a lot of time discussing, trying to deduce its very essence without giving the non-answer of
+        saying a map is anything and everything. We mapped aspects of our own life as well, me a family vacation I took
+        to Hawaii, and Amrita her mind during the past year. Considering Itinera, my travel map, and her mind map, which
+        undeniably function as maps in some regard, we concluded that a map must have the followed components:</p>
+    <ol>
+        <li>Time: the visual must be placed in the context of time. All maps, even if not explicitly stated, have a
+            duration or time component associated with them. Even globes or other geographical maps, which don’t seem to
+            be correlated to time, show national boundaries and continental formations during certain periods of time.
+        </li>
 
-            <li>Order: There must be structure to the visual that reveals more information about it.</li>
+        <li>Place: Whether physical or mental, there is always a “location” that the map shows or intuits. For example,
+            in Amrita’s mind map, the location would be her mind, while mine shows the locations my family and I visited
+            on our journey to and from Hawaii.</li>
 
-            <li>Displacement: All maps show or cause displacement. Mine, for example, shows the displacement of my family during our trip to Hawaii. However, maps also cause displacement by moving one’s mind from one place of knowing to another. Think about it: when you look at a data visualization, you are learning new information, which displaces the state of your mind from one state of knowing and being to another.</li>
+        <li>Text, lines, shapes, and/or images: This is the most basic, fundamental level of communication through which
+            all visuals convey information through, and maps are no exception.</li>
 
-            <li>Audience: A map is useless if there is no one to decode it’s meaning. There can be different audiences, with some better attuned for the scope of some maps than others.</li>
-        </ol>
-        <p>Within all this, we must also consider intention (choices made in terms of colors, visualization types, etc.), resource constraints, and scope (what are you trying to convey?) With this in mind, I began my process of mapping in Itinera.</p>
+        <li>Order: There must be structure to the visual that reveals more information about it.</li>
 
-        <h3>Collecting the data</h3>
-        <p>Amrita had me start with the A Dictionary of British and Irish Travellers in Italy 1701-1800 like she did so I could have a somewhat structured biography in one place rather than hunting for information I didn’t know I’d need somewhere on the internet. Picking a random one, I decided to map someone named Christopher Norton first, an engraver and antiquarian by trade. Another name was mentioned numerous times during Norton’s entry, so I also decided map him, James Byres of Tonley. While Norton’s entry was around half a page, Byres’ entry spanned two pages, chockful of information about his life story and events.</p>
+        <li>Displacement: All maps show or cause displacement. Mine, for example, shows the displacement of my family
+            during our trip to Hawaii. However, maps also cause displacement by moving one’s mind from one place of
+            knowing another. Think about it: when you look at a data visualization, you are learning new information,
+            which displaces the state of your mind from one state of knowing and being to another.</li>
 
-        <p>Additionally, I researched both individuals online. There was much more information available for Byres’ than Norton, but nothing I read highlighted anything of relevance (to their travels) that I didn’t already know about*. While reading both of their entries, I had a pen and paper nearby to visualize their travels, which was very time consuming – it took 2-3 4-hour research sessions (I was in the office to work once a week) before I had any idea of where and when each of them travelled and what the structure of their travelling looked like.</p>
+        <li>Audience: A map is useless if there is no one to decode its meaning. There can be different audiences, with
+            some better attuned for the scope of some maps than others.</li>
+    </ol>
+    <p>Within all this, we must also consider intention (choices made in terms of colors, visualization types, etc.),
+        resource constraints, and scope (what are you trying to convey?) With this in mind, I began my process of
+        mapping in Itinera.</p>
 
-        <p>It was a different challenge trying to figure out how both of their travels connected since they are highly interconnected entities (they travelled and lived together either in the same street or house multiple times while they knew each other). Collaborating with Amrita, we drew out both of their travels on a large sheet of Post-it note paper and identified when and where their travels overlapped. Seeing Amrita’s version of the information and the process of having to explain to her the intricacies of both of their travels was an incredibly productive process that allowed me to really internalize both of their travels and understand how these two entities related.</p>
+    <h3>Collecting the data</h3>
+    <p>Amrita had me start with the A Dictionary of British and Irish Travellers in Italy 1701-1800 like she did so I
+        could have a somewhat structured biography in one place rather than hunting for information I didn’t know I’d
+        need somewhere on the internet. Picking a random one, I decided to map someone named Christopher Norton first,
+        an engraver and antiquarian by trade. Another name was mentioned numerous times during Norton’s entry, so I also
+        decided to map him, James Byres of Tonley. While Norton’s entry was around half a page, Byres’ entry spanned two
+        pages, chockful of information about his life story and events.</p>
 
-        <h3>Entering the data</h3>
-        <p>Entering the data sounds simply in theory. However, theory rarely plays out in real life. Itinera utilizes Collective Access, an archives database designed for museums to catalogue artifacts in a collection. This system works quite well for Itinera since it is also a collection, just one of entities that move(d) rather than static objects one might find in a museum. This means that the fields to fill for each entity are incredibly numerous and specific, in hopes of covering all bases of each entity’s travels. You must decide what it is you are mapping: an entity, object, tour, tour stop, source, or place. The latter two are for mapping, as the name suggests, sources and places, while the main ones I interacted with were entity, tour, and tour stop (objects are for non-human entities, such as furry friends!).</p>
+    <p>Additionally, I researched both individuals online. There was much more information available for Byres’ than
+        Norton, but nothing I read highlighted anything of relevance (to their travels) that I didn’t already know
+        about*. While reading both of their entries, I had a pen and paper nearby to visualize their travels, which was
+        very time consuming – it took 2-3 4-hour research sessions (I was in the office to work once a week) before I
+        had any idea of where and when each of them travelled and what the structure of their travelling looked like.
+    </p>
 
-        <p>The entity’s entry consisted of their name, picture, life date, death date, active date, and baptism date, as well as related entities, other people/connections they had in their life, and related places: where they were born, worked, and/or died, and the source from which this information was taken from. Once this was complete, I had to create a tour for the agent, which is essentially the journey of places the entity took within their life. This is where I added tour stops, the times when the individual visited the location that I inputted in their tour. </p>
+    <p>It was a different challenge trying to figure out how both of their travels connected since they are highly
+        interconnected entities (they travelled and lived together either in the same street or house multiple times
+        while they knew each other). Collaborating with Amrita, we drew out both of their travels on a large sheet of
+        Post-it note paper and identified when and where their travels overlapped. Seeing Amrita’s version of the
+        information and the process of having to explain to her the intricacies of both of their travels was an
+        incredibly productive process that allowed me to really internalize both of their travels and understand how
+        these two entities related.</p>
 
-        <p>Once this was complete, I needed to go into each individual tour stop and add information such as related entities, dates visited, what they were doing there, etc. It was here that I could link tour stops of other entities to denote that two entities were at the same place at the same time. The entry of the tours and their respective tour stops was more tedious and time consuming than I could have ever imagined. I had to make so many decisions, such as what dates to enter for some of the tour stops since I inferred them from the reading and understand deeply how Norton’s tour related to Byres’ tour and vice versa.</p>
+    <h3>Entering the data</h3>
+    <p>Entering the data sounds simply in theory. However, theory rarely plays out in real life. Itinera utilizes
+        Collective Access, an archives database designed for museums to catalogue artifacts in a collection. This system
+        works quite well for Itinera since it is also a collection, just one of the entities that move(d) rather than
+        static objects one might find in a museum. This means that the fields to fill for each entity are incredibly
+        numerous and specific, in hopes of covering all bases of each entity’s travels. You must decide what it is you
+        are mapping: an entity, object, tour, tour stop, source, or place. The latter two are for mapping, as the name
+        suggests, sources and places, while the main ones I interacted with were entity, tour, and tour stop (objects
+        are for non-human entities, such as furry friends!).</p>
 
-        <p>At one point, for Byres, he travelled back and forth so much between Rome and Scotland that I ran out of tour stops to show his journey (Itinera’s system only allows for 3 dates within each tourstop). With the help of Amrita, I made the executive decision of which stops to cut and which ones to include. What seemed like a simple task ended up taking me 2-3 4-hour work sessions to complete due to the novelty and effort complexity of it all.</p>
+    <p>The entity’s entry consisted of their name, picture, life date, death date, active date, and baptism date, as
+        well as related entities, other people/connections they had in their life, and related places: where they were
+        born, worked, and/or died, and the source from which this information was taken from. Once this was complete, I
+        had to create a tour for the agent, which is essentially the journey of places the entity took within their
+        life. This is where I added tour stops, the times when the individual visited the location that I inputted on
+        their tour.</p>
 
-        <h3>Making the visualization</h3>
+    <p>Once this was complete, I needed to go into each individual tour stop and add information such as related
+        entities, dates visited, what they were doing there, etc. It was here that I could link tour stops of other
+        entities to denote that two entities were at the same place at the same time. The entry of the tours and their
+        respective tour stops was more tedious and time consuming than I could have ever imagined. I had to make so many
+        decisions, such as what dates to enter for some of the tour stops since I inferred them from the reading and
+        understand deeply how Norton’s tour was related to Byres’ tour, and vice versa.</p>
 
-        <p>Throughout the whole process, I revisited something that I learned about a couple years ago: creative data visualization, or data art. I remember picking up the book (or more accurately, tome, because it is HUGE and beautiful) Data Sketches by Nadieh Bremer and Shirely Wu and being amazed by the intricate and complex visualizations they were able to craft using data, code, and creativity. As a creative myself who loves STEM, I immediately fell in love with it, but then kind of forgot about it, at the time not having the technical skillset as a middle schooler to pull it off. It was, however, one of the reasons I started learning data science.</p>
+    <p>At one point, for Byres, he travelled back and forth so much between Rome and Scotland that I ran out of tour
+        stops to show his journey (Itinera’s system only allows for 3 dates within each tourstop). With the help of
+        Amrita, I made the executive decision of which stops to cut and which ones to include. What seemed like a simple
+        task ended up taking me 2-3 4-hour work sessions to complete due to the novelty and effort complexity of it all.
+    </p>
 
-        <p>Amrita and I’s conversation at the start of FE-R reminded me of the book, so I decided to order it from the local library and give it a read. I remembered why I loved it so much and realized with much more technical knowledge and AI, I possessed the ability to create my own beautiful visualizations. A couple sessions prior, Amrita asked me how I personally would revisualize Itinera. Immediately, I knew I wanted to create a network visualization to see at a high level all the entities in the Itinera database and how they all connected. Itinera did have a network visualization, but it only showed the connection that one main entity had to their next immediate node(s) and didn’t show the nodes in relation to all the other nodes in the database.</p>
+    <h3>Making the visualization</h3>
 
-        <p>I asked my faculty mentor and Itinera lead Dr. Alison Langmead for some static data. Itinera is a relational database, meaning that (1) you can’t view all entries at once like one might imagine in a typical database and (2) I had to choose two fields at a time to work with. With my idea in mind, I asked for each entity and all their related entities. What I got was an extremely messy, real dataset that needed A LOT of work. First, all the related entities per each entity were all in one cell separated by semicolons, which was simple enough to fix.</p>
+    <p>Throughout the whole process, I revisited something that I learned about a couple years ago: creative data
+        visualization, or data art. I remember picking up the book (or more accurately, tome, because it is HUGE and
+        beautiful) Data Sketches by Nadieh Bremer and Shirely Wu and being amazed by the intricate and complex
+        visualizations they were able to craft using data, code, and creativity. As a creative myself who loves STEM, I
+        immediately fell in love with it, but then kind of forgot about it, at the time not having the technical
+        skillset as a middle schooler to pull it off. It was, however, one of the reasons I started learning data
+        science.</p>
 
-        <p>However, special characters in the dataset (á, é, í, check name) were encoded as “√©” or “√∫”. After spending around 20-30 minutes going through the dataset and cataloguing all the various versions of the encodings I saw, I used the help of ChatGPT to figure out what encoding it was and write a script to fix it. I am proficient in Python and basic exploratory data analysis (EDA); however, the scope of this project required a different level of help that was beyond my expertise. Doing this, I got a dataset that was fully legible with actual words and separated each related entity, so it occupied its own cell in the Excel spreadsheet.</p>
+    <p>Amrita and I’s conversation at the start of FE-R reminded me of the book, so I decided to order it from the local
+        library and give it a read. I remembered why I loved it so much and realized with much more technical knowledge
+        and AI, I possessed the ability to create my own beautiful visualizations. A couple of sessions prior, Amrita
+        asked me how I personally would revisualize Itinera. Immediately, I knew I wanted to create a network
+        visualization to see at a high level all the entities in the Itinera database and how they all connected.
+        Itinera did have a network visualization, but it only showed the connection that one main entity had to their
+        next immediate node(s) and didn’t show the nodes in relation to all the other nodes in the database.</p>
 
-        <div id="simple-network" class="aligner"></div>
+    <p>I asked my faculty mentor and Itinera lead Dr. Alison Langmead for some static data. Itinera is a relational
+        database, meaning that (1) you can’t view all entries at once like one might imagine in a typical database and
+        (2) I had to choose two fields at a time to work with. With my idea in mind, I asked for each entity and all
+        their related entities. What I got was an extremely messy, real dataset that needed A LOT of work. First, all
+        the related entities per entity were all in one cell separated by semicolons, which was simple enough to fix.
+    </p>
 
-        <p>Then, I converted the data into a JSON file so that each entity was represented as a node and the relationship between each entity and related entity was represented as a link. Thanks to D3.js and its incredibly well-documented library (which I spent much of my spring break learning and working with), I created an interactive disjoint force-directed graph that complied with the laws of physics. It was quite wonderful – the only problem was that the colors had no meaning. This wasn’t a problem per se as it didn’t technically inhibit the visualization, but a qualm I had knowing full well that each visual channel, or property, should signify something, which in this case it didn’t. I knew I could make it mean something – I just didn’t have enough data to warrant another visual channel.</p>
+    <p>However, special characters in the dataset (á, é, í, check name) were encoded as “√©” or “√∫”. After spending
+        around 20-30 minutes going through the dataset and cataloguing all the various versions of the encodings I saw,
+        I used the help of ChatGPT to figure out what encoding it was and write a script to fix it. I am proficient in
+        Python and basic exploratory data analysis (EDA); however, the scope of this project required a different level
+        of help that was beyond my expertise. Doing this, I got a dataset that was fully legible with actual words and
+        separated from each related entity, so it occupied its own cell in the Excel spreadsheet.</p>
 
-        <p>So, I asked my faculty mentor if I could have any and all dates associated with each entity. Again, I received an extremely messy dataset, this one somehow worse because not only were all the dates squished into one cell, but there were also random numbers sprinkled in, denoting when a field could not be parsed properly because it didn’t contain the data (in fact, much of the data didn’t have dates, but I learn why eventually). Cleaning this dataset was out of my scope of knowledge, so I yet again queried ChatGPT to formulate a script to fix it. However, it was so messy that even it couldn’t fix it. Claude and Gemini couldn’t either, even after I thoroughly reviewed each line, understanding what it did and tweaking it to yield results closer to what I wanted.</p>
+    <figure class="notes-figure">    
+        <img src="images/special-chars-notes.JPG" alt="My catalogue of all the special characters I found and their respective encodings."></img>
+    </figure>
 
-        <p>I was able to separate each type of date into their own columns, but the different versions of the dates (indexing and display dates) were still stuck together, and when I asked for a column showing whether each date was precise or not (whether it contained circa, c., ca., or any other variation), it gave me a column filled with falses, even when in some cases it was true. At this point I realized it would be easiest if I just cleaned the data myself, sticking my cursor into each cell to hopefully make the dataset something of use. After all, it was only about 740 rows, so it wasn’t too much of a hassle. It was during this process that I realized that all the scripts I ran duplicated many rows, so it turned out I had 719 rows of unique entities.</p>
+    <div id="simple-network" class="aligner"></div>
 
-        <p>I also decided that I wanted the color of each node to represent the birth date and the stroke (outline) to represent the death date. I merged the dataset that I just cleaned with the entity names and dates with the previous dataset consisting of the entities and related entities so that each entity (node) had two dates associated with it. I got this to work, but somewhere along the way more links were created between each node. I am still trying to work the kinks out.</p>
+    <p>Then, I converted the data into a JSON file so that each entity was represented as a node, and the relationship
+        between each entity and related entity was represented as a link. Thanks to D3.js and its incredibly
+        well-documented library (which I spent much of my spring break learning and working with), I created an
+        interactive disjoint force-directed graph that complied with the laws of physics. It was quite wonderful – the
+        only problem was that the colors had no meaning. This wasn’t a problem per se as it didn’t technically inhibit
+        the visualization, but a qualm I had knowing full well that each visual channel, or property, should signify
+        something, which in this case it didn’t. I knew I could make it mean something – I just didn’t have enough data
+        to warrant another visual channel.</p>
 
-        <div id="dates-network" class="aligner"></div>
+    <p>So, I asked my faculty mentor if I could have any and all dates associated with each entity. Again, I received an
+        extremely messy dataset, this one somehow worse because not only were all the dates squished into one cell, but
+        there were also random numbers sprinkled in, denoting when a field could not be parsed properly because it
+        didn’t contain the data (in fact, much of the data didn’t have dates, but I learn why eventually). Cleaning this
+        dataset was out of my scope of knowledge, so I yet again queried ChatGPT to formulate a script to fix it.
+        However, it was so messy that even it couldn’t fix it. Claude and Gemini couldn’t either, even after I
+        thoroughly reviewed each line, understanding what it did and tweaking it to yield results closer to what I
+        wanted.</p>
 
-        <h2>Conclusion</h2>
+    <p>I was able to separate each type of date into their own columns, but the different versions of the dates
+        (indexing and display dates) were still stuck together, and when I asked for a column showing whether each date
+        was precise or not (whether it contained circa, c., ca., or any other variation), it gave me a column filled
+        with falses, even when in some cases it was true. At this point I realized it would be easiest if I just cleaned
+        the data myself, sticking my cursor into each cell to hopefully make the dataset something of use. After all, it
+        was only about 740 rows, so it wasn’t too much of a hassle. It was during this process that I realized that all
+        the scripts I ran duplicated many rows, so it turned out I had 719 rows of unique entities.</p>
 
-        <p>Both variations of the network visualization that I created show the general patterns of Grand Tours and 18th century travel, mainly that some individuals are much more well-connected than others, which is to be expected. After all, humans are humans no matter the time, and it’s understandable for networks then to function the same they do now. However, there are only about 720 entries in Itinera, which is nowhere near comprehensive of travelers during the 18th century. What, then, is Itinera’s purpose?</p>
+    <p>I also decided that I wanted the color of each node to represent the birth date and the stroke (outline) to
+        represent the death date. I merged the dataset that I just cleaned with the entity names and dates with the
+        previous dataset consisting of the entities and related entities so that each entity (node) had two dates
+        associated with it. I got this to work, but somewhere along the way more links were created between each node. I
+        am still trying to work the kinks out.</p>
 
-        <p>You would think I would know after spending 3 months working with it, but when it came time to reflect on my experience, I realized that I was in some ways I just as clueless as when I started. Having a conversation with Dr. Langmead really helped. When I showed her the visualization, she said that she saw the decisions of different project managers reflected in the shape of visualization rather than the data itself (for the past 10 years, a new PhD student takes over Itinera as project lead each year; this year, Amrita is that person). In that regard, Itinera has a great temporal connection depending on who led the project. This is why some entities just had names and connections to other entities with no dates – that particular project manager was focused on building out the network of connections, not fleshing out each entity.</p>
+    <div id="dates-network" class="aligner"></div>
 
-        <p>She said that Itinera was never meant to be accurate, that in many ways, it never can or could be. It is meant to be a reference point, a classroom to encourage further discussion and to give just a smidge of an idea of how vastly interconnected people were back then, and how travel made them even more so. Human interaction can be modeled by the graph data structure, a series of nodes linked by connection, but it misses so much. It misses the strength of that connection, how they knew each other, and in what way were they related.</p>
+    <h2>Conclusion</h2>
 
-        <p>For example, researching Christopher Norton and James Byres showed that the two travelled together and at some points lived together for a considerable about of time. One source, though I’m not sure how accurate this is, alluded that Norton and Byres were in a romantically involved, and masked their relationship as a work and friend one. This in no way could be mapped to Itinera. One could try, but the database requires that one flatten the complexity of the information so that it can be entered into one of many fields. Is that worth it? Probably not. Visualizations are meant to have scope, an angle, to show at least one thing and show it well. To add this functionality would, in some ways, be going against everything Itinera stands for.</p>
+    <p>Both variations of the network visualization that I created show the general patterns of Grand Tours and 18th
+        century travel, mainly that some individuals are much more well-connected than others, which is to be expected.
+        After all, humans are humans no matter the time, and it’s understandable for networks then to function the same
+        they do now. However, there are only about 720 entries in Itinera, which is nowhere near comprehensive of all
+        travelers during the 18th century. What, then, is Itinera’s purpose?</p>
 
-        <p>Looking back on my experience, working on the backend of Itinera gave me some of the most knowledge and learning experiences that looking on the frontend could never give. It taught me to be curious and come up with assumptions, validate them, and update them in accordance with the new information I acquired. In a way, I learned to think critically about the humanities in a way that many of us never learn in grade school, or college even, especially if you are a non-humanities major. This a lesson I will take with me as I continue my STEM coursework and in life, because we are all human living in a human world after all.</p>
+    <p>You would think I would know after spending 3 months working with it, but when it came time to reflect on my
+        experience, I realized that I was in some ways I just as clueless as when I started. Having a conversation with
+        Dr. Langmead really helped me understand Itinera’s purpose and what I gained from this experience that I
+        couldn’t quite put my finger on. When I showed her the visualization, she said that she saw the decisions of
+        different project managers reflected in the shape of visualization rather than the data itself (for the past 10
+        years, a new PhD student takes over Itinera as project lead each year; this year, Amrita is that person). In
+        that regard, Itinera has a great temporal connection depending on who led the project. This is why some entities
+        just had names and connections to other entities with no dates – that particular project manager was focused on
+        building out the network of connections, not fleshing out each entity.</p>
 
-    </body>
+    <p>She said that Itinera was never meant to be accurate, that in many ways, it never can, nor should it be. It is
+        meant to be a reference point, a classroom to encourage further discussion and to give just a smidge of an idea
+        of how vastly interconnected people were back then, and how travel made them even more so. Human interaction can
+        be modeled by the graph data structure, a series of nodes linked by connection, but it misses so much. It misses
+        the strength of that connection, how they knew each other, and in what way(s) they were related.</p>
+
+    <p>For example, researching Christopher Norton and James Byres showed that the two travelled together and at some
+        points lived together for a considerable about of time. One source, though I’m not sure how accurate this is,
+        alluded that Norton and Byres were romantically involved, and masked their relationship as a work and friend
+        one. This in no way could be mapped to Itinera. One could try, but the database requires that one flatten the
+        complexity of the information so that it can be entered into one of many fields. Is that worth it? Probably not.
+        Visualizations are meant to have scope, an angle, to show at least one thing and show it well. To add this
+        functionality would, in some ways, be going against everything Itinera stands for.</p>
+
+    <p>Looking back on my experience, working on the backend of Itinera gave me some of the most valuable learning
+        experiences that looking at the frontend could never give. It taught me to be curious and come up with
+        assumptions, validate them, and update them in accordance with the new information I acquired. In a way, I
+        learned to think critically about the humanities in a way that many of us never learn in grade school, or
+        college even, especially if you are a non-humanities major. This is a lesson I will take with me as I continue
+        my STEM coursework and in life, because we are all human living in a human world after all.</p>
+
+</body>
+
 </html>
