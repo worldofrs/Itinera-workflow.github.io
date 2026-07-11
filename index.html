@@ -120,7 +120,8 @@
 
     <p>Amrita and I’s conversation at the start of FE-R reminded me of the book, so I decided to order it from the local
         library and give it a read. I remembered why I loved it so much and realized with much more technical knowledge
-        and AI, I possessed the ability to create my own beautiful visualizations. A couple of sessions prior, Amrita
+        now than I had then, I possessed the ability to create my own beautiful visualizations. A couple of sessions
+        prior, Amrita
         asked me how I personally would revisualize Itinera. Immediately, I knew I wanted to create a network
         visualization to see at a high level all the entities in the Itinera database and how they all connected.
         Itinera did have a network visualization, but it only showed the connection that one main entity had to their
@@ -135,13 +136,13 @@
 
     <p>However, special characters in the dataset (á, é, í, check name) were encoded as “√©” or “√∫”. After spending
         around 20-30 minutes going through the dataset and cataloguing all the various versions of the encodings I saw,
-        I used the help of ChatGPT to figure out what encoding it was and write a script to fix it. I am proficient in
-        Python and basic exploratory data analysis (EDA); however, the scope of this project required a different level
-        of help that was beyond my expertise. Doing this, I got a dataset that was fully legible with actual words and
+        I wrote a script to go from what was a Mac Roman encoding to the standard UTF-8. Doing this, I got a dataset
+        that was fully legible with actual words and
         separated from each related entity, so it occupied its own cell in the Excel spreadsheet.</p>
 
-    <figure class="notes-figure">    
-        <img src="images/special-chars-notes.JPG" alt="My catalogue of all the special characters I found and their respective encodings."></img>
+    <figure class="notes-figure">
+        <img src="images/special-chars-notes.JPG"
+            alt="My catalogue of all the special characters I found and their respective encodings."></img>
     </figure>
 
     <div id="simple-network" class="aligner"></div>
@@ -158,11 +159,9 @@
     <p>So, I asked my faculty mentor if I could have any and all dates associated with each entity. Again, I received an
         extremely messy dataset, this one somehow worse because not only were all the dates squished into one cell, but
         there were also random numbers sprinkled in, denoting when a field could not be parsed properly because it
-        didn’t contain the data (in fact, much of the data didn’t have dates, but I learn why eventually). Cleaning this
-        dataset was out of my scope of knowledge, so I yet again queried ChatGPT to formulate a script to fix it.
-        However, it was so messy that even it couldn’t fix it. Claude and Gemini couldn’t either, even after I
-        thoroughly reviewed each line, understanding what it did and tweaking it to yield results closer to what I
-        wanted.</p>
+        didn’t contain the data (in fact, much of the data didn’t have dates, but I learn why eventually). To solve
+        this, I created another variable to keep track of whether a date was present, helping to reduce the amount of
+        null values in the dataset.</p>
 
     <p>I was able to separate each type of date into their own columns, but the different versions of the dates
         (indexing and display dates) were still stuck together, and when I asked for a column showing whether each date
